@@ -15,12 +15,12 @@ int _printf(const char *format, ...)
 
 	int i = 0;
 
-	int j = 0;
+	/* int j = 0; */
 
-	char specifier;
+	/*char specifier; */
 
 	spec_t spec[] = {
-		{'c', *print_char},
+		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
 		{'i', print_int},
@@ -31,16 +31,26 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 	return (-1);
 
+	(void)spec;
+
 	va_start(args, format);
 
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
-				_putchar('%');
-				count++;
-				i++;
+			_putchar('%');
+			count++;
+			i += 2;
 		}
+        else
+        {
+            _putchar(format[i]);  /* Affiche le caractère normal */
+            count++;
+		    i++;
+        }
+	}
 
-	if (format[i] == '%' && format[i + 1] == specifier)
+	return (count);
+
 }
