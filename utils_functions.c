@@ -2,8 +2,6 @@
 
 /**
 * _strlen - returns the length of a string.
-*
-*
 *@s: Pointer to the string to be measured
 *
 * Return: The length of the string
@@ -23,12 +21,24 @@ int _strlen(const char *s)
 * @c: The character to print
 *
 * Return: On success 1.
-* On error, -1 is returned, and errno is set appropriately.
+*         On error, -1 is returned, and errno is set appropriately.
 */
 
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
+}
+
+/**
+* print_number - Prints an unsigned integer using _putchar.
+* @n: The unsigned integer to print.
+*/
+void print_number(unsigned int n)
+{
+	if (n / 10)
+		print_number(n / 10);
+
+	_putchar((n % 10) + '0');
 }
 
 /**
@@ -41,8 +51,8 @@ int _putchar(char c)
 * otherwise, use uppercase (A-F).
 *
 * Return: A pointer to a statically allocated buffer
-*		containing the converted string.
-*		The caller should not modify or free this buffer.
+*		  containing the converted string.
+*		  The caller should not modify or free this buffer.
 */
 
 /* convert n'est pas encore codée, on neutralise les paramètres */

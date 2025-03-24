@@ -16,8 +16,6 @@
 * @func: Pointer to the function that handles the format
 */
 
-/* Table de correspondance entre le spécificateur et la fonction associée */
-
 typedef struct spec
 {
 	char specifier;
@@ -40,7 +38,6 @@ void print_percent(va_list args);
 
 /* Fonctions pour les entiers */
 void print_int(va_list args);
-void print_decimal(va_list args);
 void print_unsigned(va_list args);
 
 /* Fonctions pour les conversions numériques */
@@ -62,6 +59,8 @@ int _putchar(char c);
 char *convert(unsigned long int num, int base, int lowercase);
 
 int _strlen(const char *s);
+
+void print_number(unsigned int n);
 
 /* void *_memcpy(void *dest, const void *src, unsigned int n); */
 
