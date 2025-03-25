@@ -32,7 +32,10 @@ int _putchar(char c)
 /**
 * print_number - Prints an unsigned integer using _putchar.
 * @n: The unsigned integer to print.
+*
+* Return: The number of characters printed.
 */
+
 int print_number(unsigned int n)
 {
 	int count = 0;
@@ -42,6 +45,34 @@ int print_number(unsigned int n)
 
 	_putchar((n % 10) + '0');
 	return (count);
+}
+
+/**
+* handle_specifier - Handles a format specifier in a printf-like function.
+* @format: The format string.
+* @i: Pointer to the current position in the format string.
+* @args: The list of arguments to process.
+* @spec: Array of spec_t structures containing specifier-function mappings.
+*
+* Return: The number of characters printed.
+*/
+
+int handle_specifier(const char *format, int *i, va_list args, spec_t spec[])
+{
+	int j, count = 0;
+
+	for (j = 0; spec[j].specifier != '\0'; j++)
+	{
+		if (format[*i + 1] == spec[j].specifier)
+		{
+			count += spec[j].func(args);
+			*i += 2;
+			return (count);
+		}
+	}
+	_putchar(format[*i]);
+	(*i)++;
+	return (1);
 }
 
 /**
