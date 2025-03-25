@@ -5,6 +5,8 @@
 /**
 * print_char - Prints a character from a variadic argument list.
 * @arg: The variadic argument list containing the character to print.
+*
+* Return: The number of characters printed (always 1 for this function).
 */
 
 int print_char(va_list arg)
@@ -18,6 +20,8 @@ int print_char(va_list arg)
 /**
 * print_int - Prints an integer from a variadic argument list.
 * @arg: The variadic argument list containing the integer to print.
+*
+* Return: The number of characters printed.
 */
 
 int print_int(va_list arg)
@@ -48,6 +52,8 @@ int print_int(va_list arg)
 *
 * Description: This function handles the '%%' format specifier
 *              in _printf. It prints a single '%' character.
+*
+* Return: The number of characters printed (always 1 for this function).
 */
 
 int print_percent(va_list arg)
@@ -61,6 +67,8 @@ int print_percent(va_list arg)
 /**
 * print_string - Prints a string from a variadic argument list.
 * @arg: The variadic argument list containing the string to print.
+*
+* Return: The number of characters printed.
 */
 
 int print_string(va_list arg)
