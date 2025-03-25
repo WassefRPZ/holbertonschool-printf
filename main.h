@@ -20,7 +20,7 @@ typedef struct spec
 {
 	char specifier;
 
-	void (*func)(va_list);
+	int (*func)(va_list);
 } spec_t;
 
 /* ========== 3. Prototypes des fonctions principales ========== */
@@ -32,24 +32,24 @@ int _printf(const char *format, ...);
 /* ========== 4. Prototypes des fonctions de gestion des types ========== */
 
 /* Fonctions de base */
-void print_char(va_list args);
-void print_string(va_list args);
-void print_percent(va_list args);
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(va_list args);
 
 /* Fonctions pour les entiers */
-void print_int(va_list args);
-void print_unsigned(va_list args);
+int print_int(va_list args);
+int print_unsigned(va_list args);
 
 /* Fonctions pour les conversions numériques */
-void print_binary(va_list args);
-void print_octal(va_list args);
-void print_hex(va_list args);
-void print_HEX(va_list args);
+int print_binary(va_list args);
+int print_octal(va_list args);
+int print_hex(va_list args);
+int print_HEX(va_list args);
 
 /* Fonctions pour autres types */
-void print_pointer(va_list args);
-void print_rev(va_list args);
-void print_rot13(va_list args);
+int print_pointer(va_list args);
+int print_rev(va_list args);
+int print_rot13(va_list args);
 
 
 /* ========== 5. Prototypes des fonctions utilitaires ========== */
@@ -60,7 +60,7 @@ char *convert(unsigned long int num, int base, int lowercase);
 
 int _strlen(const char *s);
 
-void print_number(unsigned int n);
+int print_number(unsigned int n);
 
 /* void *_memcpy(void *dest, const void *src, unsigned int n); */
 

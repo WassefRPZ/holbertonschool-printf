@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 
 	int j = 0;
 
-	int found = 0;
+	int found;
 
 	/*char specifier; */
 
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		{'%', print_percent},
 		{'i', print_int},
 		{'d', print_int},
-		{NULL, NULL}
+		{'\0', NULL}
 	};
 
 	if (format == NULL)
@@ -46,6 +46,7 @@ int _printf(const char *format, ...)
 
 		else if (format[i] == '%')
 		{
+			found = 0;
 			for (j = 0; spec[j].specifier != '\0'; j++)
 			{
 				count += spec[j].func(args);

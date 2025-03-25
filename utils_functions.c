@@ -33,12 +33,13 @@ int _putchar(char c)
 * print_number - Prints an unsigned integer using _putchar.
 * @n: The unsigned integer to print.
 */
-void print_number(unsigned int n)
+int print_number(unsigned int n)
 {
 	if (n / 10)
 		print_number(n / 10);
 
 	_putchar((n % 10) + '0');
+	return (0);
 }
 
 /**
