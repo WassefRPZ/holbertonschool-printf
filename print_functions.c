@@ -7,11 +7,12 @@
 * @arg: The variadic argument list containing the character to print.
 */
 
-void print_char(va_list arg)
+int print_char(va_list arg)
 {
 	char c = va_arg(arg, int);
 
 	_putchar(c);
+	return (0);
 }
 
 /**
@@ -19,7 +20,7 @@ void print_char(va_list arg)
 * @arg: The variadic argument list containing the integer to print.
 */
 
-void print_int(va_list arg)
+int print_int(va_list arg)
 {
 	int n = va_arg(arg, int);
 	unsigned int num;
@@ -36,6 +37,7 @@ void print_int(va_list arg)
 
 	/* Appel d'une fonction d’aide pour afficher chiffre par chiffre */
 	print_number(num);
+	return (0);
 }
 
 /**
@@ -46,11 +48,12 @@ void print_int(va_list arg)
 *              in _printf. It prints a single '%' character.
 */
 
-void print_percent(va_list arg)
+int print_percent(va_list arg)
 {
 	(void)arg;
 
 	_putchar('%');
+	return (0);
 }
 
 /**
@@ -58,7 +61,7 @@ void print_percent(va_list arg)
 * @arg: The variadic argument list containing the string to print.
 */
 
-void print_string(va_list arg)
+int print_string(va_list arg)
 {
 	char *str = va_arg(arg, char *);
 	int i;
@@ -67,5 +70,8 @@ void print_string(va_list arg)
 		str = "(null)";
 
 	for (i = 0; str[i] != '\0'; i++)
+	{
 		_putchar(str[i]);
+	}
+	return (0);
 }
