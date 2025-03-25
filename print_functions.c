@@ -12,7 +12,7 @@ int print_char(va_list arg)
 	char c = va_arg(arg, int);
 
 	_putchar(c);
-	return (0);
+	return (1);
 }
 
 /**
@@ -24,10 +24,12 @@ int print_int(va_list arg)
 {
 	int n = va_arg(arg, int);
 	unsigned int num;
+	int count = 0;
 
 	if (n < 0)
 	{
 		_putchar('-');
+		count++;
 		num = -n;
 	}
 	else
@@ -36,8 +38,8 @@ int print_int(va_list arg)
 	}
 
 	/* Appel d'une fonction d’aide pour afficher chiffre par chiffre */
-	print_number(num);
-	return (0);
+	count += print_number(num);
+	return (count);
 }
 
 /**
@@ -53,7 +55,7 @@ int print_percent(va_list arg)
 	(void)arg;
 
 	_putchar('%');
-	return (0);
+	return (1);
 }
 
 /**
@@ -73,5 +75,5 @@ int print_string(va_list arg)
 	{
 		_putchar(str[i]);
 	}
-	return (0);
+	return (1);
 }

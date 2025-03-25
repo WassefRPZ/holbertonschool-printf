@@ -62,6 +62,8 @@ int _strlen(const char *s);
 
 int print_number(unsigned int n);
 
+int handle_specifier(const char *format, int *i, va_list args, spec_t spec[]);
+
 /* void *_memcpy(void *dest, const void *src, unsigned int n); */
 
 #endif /* MAIN_H */
