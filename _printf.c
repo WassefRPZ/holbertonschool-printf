@@ -15,7 +15,9 @@ int _printf(const char *format, ...)
 
 	int i = 0;
 
-	/* int j = 0; */
+	int j = 0;
+
+	int found = 0;
 
 	/*char specifier; */
 
@@ -25,13 +27,11 @@ int _printf(const char *format, ...)
 		{'%', print_percent},
 		{'i', print_int},
 		{'d', print_int},
-		{0, NULL}
+		{NULL, NULL}
 	};
 
 	if (format == NULL)
 	return (-1);
-
-	(void)spec;
 
 	va_start(args, format);
 
@@ -43,14 +43,37 @@ int _printf(const char *format, ...)
 			count++;
 			i += 2;
 		}
-        else
-        {
-            _putchar(format[i]);  /* Affiche le caractère normal */
-            count++;
-		    i++;
-        }
-	}
 
+		else if (format[i] == '%')
+		{
+			for (j = 0; spec[j].specifier != '\0'; j++)
+			{
+				count += spec[j].func(args);
+				i += 2;
+				found = 1;
+				break;
+			}
+		}
+
+		if (!found)
+		{
+			/* Si le spécificateur n'est pas reconnu, on affiche le % tel quel */
+			_putchar('%');
+			_putchar(format[i + 1]);
+			count += 2;
+			i += 2;
+		}
+
+
+		else
+    	{
+     		_putchar(format[i]);  /* Affiche le caractère normal */
+        	count++;
+			i++;
+		}
+
+	}
 	return (count);
+
 
 }
