@@ -35,11 +35,13 @@ int _putchar(char c)
 */
 int print_number(unsigned int n)
 {
+	int count = 0;
+
 	if (n / 10)
-		print_number(n / 10);
+	count += print_number(n / 10);
 
 	_putchar((n % 10) + '0');
-	return (0);
+	return (count);
 }
 
 /**
