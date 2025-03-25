@@ -49,11 +49,11 @@ int print_number(unsigned int n)
 }
 
 /**
-* handle_specifier - Handles a format specifier in _printf
-* @format: The format string
-* @i: Pointer to the current index in the format string
-* @args: The va_list of arguments
-* @spec: Array of valid specifiers and their functions
+* handle_specifier - Handles format specifier in _printf
+* @format: Format string
+* @i: Pointer to current index
+* @args: Argument list
+* @spec: Array of valid specifiers
 *
 * Return: Number of characters printed
 */
@@ -61,6 +61,10 @@ int print_number(unsigned int n)
 int handle_specifier(const char *format, int *i, va_list args, spec_t spec[])
 {
 	int j, count = 0;
+
+	/* Cas : % seul à la fin */
+	if (format[*i + 1] == '\0')
+		return (0);
 
 	for (j = 0; spec[j].specifier != '\0'; j++)
 	{
@@ -72,9 +76,11 @@ int handle_specifier(const char *format, int *i, va_list args, spec_t spec[])
 		}
 	}
 
-	_putchar(format[*i]);
-	(*i)++;
-	return (1);
+	/* Cas : caractère non géré → afficher % + caractère */
+	_putchar('%');
+	_putchar(format[*i + 1]);
+	*i += 2;
+	return (2);
 }
 
 /**

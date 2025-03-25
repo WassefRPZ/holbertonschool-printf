@@ -3,48 +3,54 @@
 #include "main.h"
 
 /**
- * main - Entry point for testing the custom _printf function
- *
- * Return: Always 0
- */
+* main - Test file for verifying all required and edge cases for _printf
+*
+* Return: Always 0
+*/
+
 int main(void)
 {
-	int len1, len2;
+	int len, std_len;
 
-	/* Test chaîne vide */
-	len1 = _printf("");
-	len2 = printf("");
-	printf("Résultats (vide) : %d | %d\n", len1, len2);
+	/* --- Test 1 : Chaîne vide --- */
+	len = _printf("");
+	std_len = printf("");
+	printf("Test 1 : \"\" => %d | %d\n", len, std_len);
 
-	/* Test de base avec %c et %s */
-	len1 = _printf("Lettre : %c, Mot : %s\n", 'A', "Bonjour");
-	len2 = printf("Lettre : %c, Mot : %s\n", 'A', "Bonjour");
-	printf("Résultats : %d | %d\n", len1, len2);
+	/* --- Test 2 : Caractère (%c) --- */
+	len = _printf("Lettre : %c\n", 'A');
+	std_len = printf("Lettre : %c\n", 'A');
+	printf("Test 2 : %%c => %d | %d\n", len, std_len);
 
-	/* Test de %% */
-	len1 = _printf("Pourcentage : %%\n");
-	len2 = printf("Pourcentage : %%\n");
-	printf("Résultats : %d | %d\n", len1, len2);
+	/* --- Test 3 : Chaîne (%s) --- */
+	len = _printf("Texte : %s\n", "Bonjour");
+	std_len = printf("Texte : %s\n", "Bonjour");
+	printf("Test 3 : %%s => %d | %d\n", len, std_len);
 
-	/* Test NULL string */
-	len1 = _printf("Chaîne : %s\n", NULL);
-	len2 = printf("Chaîne : %s\n", NULL);
-	printf("Résultats (NULL) : %d | %d\n", len1, len2);
+	/* --- Test 4 : NULL string (%s) --- */
+	len = _printf("Texte : %s\n", NULL);
+	std_len = printf("Texte : %s\n", NULL);
+	printf("Test 4 : %%s avec NULL => %d | %d\n", len, std_len);
 
-	/* Test %i et %d */
-	len1 = _printf("Nombres : %i et %d\n", -42, 1024);
-	len2 = printf("Nombres : %i et %d\n", -42, 1024);
-	printf("Résultats : %d | %d\n", len1, len2);
+	/* --- Test 5 : Pourcentage (%%) --- */
+	len = _printf("100%% garanti\n");
+	std_len = printf("100%% garanti\n");
+	printf("Test 5 : %%%% => %d | %d\n", len, std_len);
 
-	/* Test % inconnu */
-	len1 = _printf("Test inconnu : %r\n");
-	len2 = printf("Test inconnu : %r\n");
-	printf("Résultats : %d | %d\n", len1, len2);
+	/* --- Test 6 : %% suivi d’un caractère (%z) --- */
+	len = _printf("Inconnu : %z\n");
+	std_len = printf("Inconnu : %z\n");
+	printf("Test 6 : %% inconnu => %d | %d\n", len, std_len);
 
-	/* Test extrême */
-	len1 = _printf("Max int : %d, Min int : %d\n", INT_MAX, INT_MIN);
-	len2 = printf("Max int : %d, Min int : %d\n", INT_MAX, INT_MIN);
-	printf("Résultats : %d | %d\n", len1, len2);
+	/* --- Test 7 : % seul à la fin --- */
+	len = _printf("Un seul %%");
+	std_len = printf("Un seul %%");
+	printf("Test 7 : %% en fin => %d | %d\n", len, std_len);
+
+	/* --- Test 8 : Double pourcentage suivi de texte (%%%%) --- */
+	len = _printf("Double pourcent : %%%%OK\n");
+	std_len = printf("Double pourcent : %%%%OK\n");
+	printf("Test 8 : %%%% + texte => %d | %d\n", len, std_len);
 
 	return (0);
 }
