@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
-* _strlen - returns the length of a string.
-*@s: Pointer to the string to be measured
+* _strlen - Returns the length of a string
+* @s: Pointer to the string to measure
 *
-* Return: The length of the string
+* Return: Length of the string
 */
 
 int _strlen(const char *s)
@@ -17,11 +17,10 @@ int _strlen(const char *s)
 }
 
 /**
-* _putchar - writes the character c to stdout
+* _putchar - Writes a character to stdout
 * @c: The character to print
 *
-* Return: On success 1.
-*         On error, -1 is returned, and errno is set appropriately.
+* Return: 1 on success, -1 on error
 */
 
 int _putchar(char c)
@@ -30,10 +29,10 @@ int _putchar(char c)
 }
 
 /**
-* print_number - Prints an unsigned integer using _putchar.
-* @n: The unsigned integer to print.
+* print_number - Prints an unsigned integer recursively
+* @n: The unsigned integer to print
 *
-* Return: The number of characters printed.
+* Return: Number of characters printed
 */
 
 int print_number(unsigned int n)
@@ -41,20 +40,22 @@ int print_number(unsigned int n)
 	int count = 0;
 
 	if (n / 10)
-	count += print_number(n / 10);
+		count += print_number(n / 10);
 
 	_putchar((n % 10) + '0');
+	count++;
+
 	return (count);
 }
 
 /**
-* handle_specifier - Handles a format specifier in a printf-like function.
-* @format: The format string.
-* @i: Pointer to the current position in the format string.
-* @args: The list of arguments to process.
-* @spec: Array of spec_t structures containing specifier-function mappings.
+* handle_specifier - Handles a format specifier in _printf
+* @format: The format string
+* @i: Pointer to the current index in the format string
+* @args: The va_list of arguments
+* @spec: Array of valid specifiers and their functions
 *
-* Return: The number of characters printed.
+* Return: Number of characters printed
 */
 
 int handle_specifier(const char *format, int *i, va_list args, spec_t spec[])
@@ -70,6 +71,7 @@ int handle_specifier(const char *format, int *i, va_list args, spec_t spec[])
 			return (count);
 		}
 	}
+
 	_putchar(format[*i]);
 	(*i)++;
 	return (1);
