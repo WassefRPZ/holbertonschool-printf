@@ -95,5 +95,5 @@ int print_string(va_list arg)
 		_putchar(str[i]);
 		count++;
 	}
-	return (count); /* Retourne le nombre total de caractères imprimés */
+	return (i);
 }

@@ -3,46 +3,48 @@
 #include "main.h"
 
 /**
-* main - Entry point
-*
-* Return: Always 0
-*/
+ * main - Entry point for testing the custom _printf function
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-	int len;
+	int len1, len2;
 
-	int len2;
+	/* Test chaîne vide */
+	len1 = _printf("");
+	len2 = printf("");
+	printf("Résultats (vide) : %d | %d\n", len1, len2);
 
-	unsigned int ui;
+	/* Test de base avec %c et %s */
+	len1 = _printf("Lettre : %c, Mot : %s\n", 'A', "Bonjour");
+	len2 = printf("Lettre : %c, Mot : %s\n", 'A', "Bonjour");
+	printf("Résultats : %d | %d\n", len1, len2);
 
-	void *addr;
+	/* Test de %% */
+	len1 = _printf("Pourcentage : %%\n");
+	len2 = printf("Pourcentage : %%\n");
+	printf("Résultats : %d | %d\n", len1, len2);
 
-	len = _printf("Let's try to printf a simple sentence.\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
-	ui = (unsigned int)INT_MAX + 1024;
+	/* Test NULL string */
+	len1 = _printf("Chaîne : %s\n", NULL);
+	len2 = printf("Chaîne : %s\n", NULL);
+	printf("Résultats (NULL) : %d | %d\n", len1, len2);
 
-	addr = (void *)0x7ffe637541f0;
-	_printf("Length:[%d, %i]\n", len, len);
-	printf("Length:[%d, %i]\n", len2, len2);
-	_printf("Negative:[%d]\n", -762534);
-	printf("Negative:[%d]\n", -762534);
-	_printf("Unsigned:[%u]\n", ui);
-	printf("Unsigned:[%u]\n", ui);
-	_printf("Unsigned octal:[%o]\n", ui);
-	printf("Unsigned octal:[%o]\n", ui);
-	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	_printf("Character:[%c]\n", 'H');
-	printf("Character:[%c]\n", 'H');
-	_printf("String:[%s]\n", "I am a string !");
-	printf("String:[%s]\n", "I am a string !");
-	_printf("Address:[%p]\n", addr);
-	printf("Address:[%p]\n", addr);
-	len = _printf("Percent:[%%]\n");
-	len2 = printf("Percent:[%%]\n");
-	_printf("Len:[%d]\n", len);
-	printf("Len:[%d]\n", len2);
-	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");
+	/* Test %i et %d */
+	len1 = _printf("Nombres : %i et %d\n", -42, 1024);
+	len2 = printf("Nombres : %i et %d\n", -42, 1024);
+	printf("Résultats : %d | %d\n", len1, len2);
+
+	/* Test % inconnu */
+	len1 = _printf("Test inconnu : %r\n");
+	len2 = printf("Test inconnu : %r\n");
+	printf("Résultats : %d | %d\n", len1, len2);
+
+	/* Test extrême */
+	len1 = _printf("Max int : %d, Min int : %d\n", INT_MAX, INT_MIN);
+	len2 = printf("Max int : %d, Min int : %d\n", INT_MAX, INT_MIN);
+	printf("Résultats : %d | %d\n", len1, len2);
+
 	return (0);
 }
