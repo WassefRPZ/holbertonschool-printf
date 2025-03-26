@@ -125,3 +125,31 @@ alex@ubuntu:~/c/printf$
 ## The Flowchart of the _printf function
 
 <img src="images/Flow_printf.png" width="800"/>
+
+## Examples
+
+```
+#include "main.h"
+
+int main(void)
+{
+    int year = 2025;
+    char grade = 'A';
+    char *name = "Mynh";
+
+    _printf("Name: %s\n", name);
+    _printf("Grade: %c\n", grade);
+    _printf("Year: %d\n", year);
+    _printf("Literal percent: %%\n");
+
+    return (0);
+}
+```
+## Output:
+
+```
+Name: Mynh
+Grade: A
+Year: 2025
+Literal percent: %
+```
