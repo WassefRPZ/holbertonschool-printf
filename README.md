@@ -122,7 +122,7 @@ alex@ubuntu:~/c/printf$
 - We strongly encourage you to work all together on a set of tests
 - If the task does not specify what to do with an edge case, do the same as `printf`
 
-## Description of _printf
+## Description of `_printf`
 
 The `_printf()` function formats and prints a series of characters and values to the standard output (`stdout`).
 Format specifiers, introduced by the percent symbol (`%`), indicate how each subsequent argument should be converted and displayed.
