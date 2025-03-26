@@ -167,5 +167,5 @@ Literal percent: %
 
 ## Authors
 
-[Benjamin Estrada](https://github.com/Aluranae)
+[Benjamin Estrada](https://github.com/Aluranae)  
 [Wassef Abdallah](https://github.com/WassefRPZ)
