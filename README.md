@@ -122,6 +122,17 @@ alex@ubuntu:~/c/printf$
 - We strongly encourage you to work all together on a set of tests
 - If the task does not specify what to do with an edge case, do the same as `printf`
 
+## Description of _printf
+
+The `_printf()` function formats and prints a series of characters and values to the standard output (`stdout`).
+Format specifiers, introduced by the percent symbol (`%`), indicate how each subsequent argument should be converted and displayed.
+
+The format string is read from left to right. When a specifier is encountered, the corresponding argument is processed according to the formatting rules and then printed. This continues for each specifier in the string.
+If there are more arguments than format specifiers, the extra arguments are ignored. Conversely, if there are fewer arguments than expected, the behavior is undefined.
+If a format specifier is not recognized, the `%` symbol followed by the unknown character is typically printed as-is, without any special processing
+
+## The man page
+
 ## The Flowchart of the _printf function
 
 <img src="images/Flow_printf.png" width="800"/>
@@ -153,3 +164,8 @@ Grade: A
 Year: 2025
 Literal percent: %
 ```
+
+## Authors
+
+[Benjamin Estrada](https://github.com/Aluranae)
+[Wassef Abdallah](https://github.com/WassefRPZ)
