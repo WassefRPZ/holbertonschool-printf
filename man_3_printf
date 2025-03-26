@@ -4,6 +4,7 @@ _printf - format and print data
 .SH SYNOPSIS
 .#include "main.h"
 .TP
+
 .int _printf(const char *format, ...);
 
 .SH DESCRIPTION
@@ -26,18 +27,20 @@ The _printf function returns the total number of characters written if the opera
 
 int main(void)
 {
-	int year = 2025;
 
-	char grade = 'A';
+    int year = 2025;
 
-	char *name = "Mynh";
+    char grade = 'A';
 
-	_printf("Name: %s\n", name);
-	_printf("Grade: %c\n", grade);
-	_printf("Year: %d\n", year);
-	_printf("Literal percent: %%\n");
+    charname = "Mynh";
 
-	return (0);
+    _printf("Name: %s\n", name);
+    _printf("Grade: %c\n", grade);
+    _printf("Year: %d\n", year);
+    _printf("Literal percent: %%\n");
+
+    return (0);
+
 }
 .PP
 .SH AUTHORS
