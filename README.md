@@ -133,6 +133,8 @@ If a format specifier is not recognized, the `%` symbol followed by the unknown 
 
 ## The man page
 
+<img src="images/man_page_printf.png"/>
+
 ## The Flowchart of the _printf function
 
 <img src="images/Flow_printf.png" width="800"/>
