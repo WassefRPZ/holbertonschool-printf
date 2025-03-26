@@ -1,19 +1,18 @@
 #include "main.h"
 
 /**
-* _printf - Produces output according to a format
-* @format: A string containing the format to print
-*
-* Return: The number of characters printed (excluding the null byte)
-*/
-
+ * _printf - Produces output according to a format
+ * @format: A string containing the format to print
+ *
+ * Return: The number of characters printed (excluding the null byte)
+ */
 int _printf(const char *format, ...)
 {
 	/* Déclaration de la liste d'arguments variables */
 	va_list args;
 
-	/* Compteur de caractères imprimés et index de parcours de la chaîne */
-	/* format */
+	/* Compteur de caractères imprimés et index de parcours */
+	/* de la chaîne format */
 	int count = 0, i = 0;
 
 	/* Tableau de structures associant les spécificateurs */
@@ -31,9 +30,24 @@ int _printf(const char *format, ...)
 	/* Initialise l'accès aux arguments variables */
 	va_start(args, format);
 
-	/* Appelle une fonction pour traiter la chaîne de format */
-	count = process_format(format, args, spec);
+	/* Parcourt chaque caractère de la chaîne de format */
+	while (format[i])
+	{
+		/* Si le caractère est un %, tenter de traiter un spécificateur */
+		if (format[i] == '%')
+			count += handle_specifier(format, &i, args, spec);
+		else
+		{
+			/* Si caractère normal, l'affiche directement avec _putchar */
+			_putchar(format[i]);
 
+			/* Incrémente le nombre de caractères imprimés */
+			count++;
+
+			/* Passe au caractère suivant */
+			i++;
+		}
+	}
 	/* Termine l'utilisation de la liste d'arguments variables */
 	va_end(args);
 

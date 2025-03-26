@@ -101,6 +101,7 @@ int handle_specifier(const char *format, int *i, va_list args, spec_t spec[])
 
 	/* Retourne 2 car deux caractères ont été imprimés : '%' */
 	/* et l'autre caractère */
+
 	return (2);
 }
 
