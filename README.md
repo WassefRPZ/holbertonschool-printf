@@ -128,7 +128,7 @@ alex@ubuntu:~/c/printf$
 
 ## Examples
 
-```
+```c
 #include "main.h"
 
 int main(void)
@@ -147,7 +147,7 @@ int main(void)
 ```
 ## Output:
 
-```
+```c
 Name: Mynh
 Grade: A
 Year: 2025
