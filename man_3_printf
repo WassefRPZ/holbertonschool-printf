@@ -4,7 +4,8 @@ _printf - format and print data
 .SH SYNOPSIS
 .#include "main.h"
 .TP
-.int _printf(const char format, ...);
+
+.int _printf(const char *format, ...);
 
 .SH DESCRIPTION
 The _printf function is a custom implementation of the standard printf function, designed to output formatted data to the screen. It mimics the behavior of the traditional printf, but with a more flexible and customized approach to handling various data types and format specifiers.
@@ -26,6 +27,7 @@ The _printf function returns the total number of characters written if the opera
 
 int main(void)
 {
+
     int year = 2025;
 
     char grade = 'A';
@@ -38,6 +40,7 @@ int main(void)
     _printf("Literal percent: %%\n");
 
     return (0);
+
 }
 .PP
 .SH AUTHORS
