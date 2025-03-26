@@ -133,7 +133,7 @@ If a format specifier is not recognized, the `%` symbol followed by the unknown 
 
 ## The man page
 
-<img src="images/.png"/>
+<img src="images/man_page_printf.png"/>
 
 ## The Flowchart of the _printf function
 
