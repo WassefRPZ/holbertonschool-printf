@@ -1,0 +1,45 @@
+.TH _printf 1 "26/03/2025" "version 1.0" user commands
+.SH NAME
+_printf - format and print data
+.SH SYNOPSIS
+.#include "main.h"
+.TP
+.int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The _printf function is a custom implementation of the standard printf function, designed to output formatted data to the screen. It mimics the behavior of the traditional printf, but with a more flexible and customized approach to handling various data types and format specifiers.
+.SH CONVERSION SPECIFIERS
+%c prints a character
+.TP
+%s prints a string
+.TP
+%% prints a percent sign
+.TP
+%d prints a integer
+.TP
+%i prints a integer
+.SH RETURN VALUE
+The _printf function returns the total number of characters written if the operation succeeds. In case of an error, it returns -1. If some characters are not accounted for, it returns them as they are.
+.SH EXAMPLES
+.PP
+#include "main.h"
+
+int main(void)
+{
+	int year = 2025;
+
+	char grade = 'A';
+
+	char *name = "Mynh";
+
+	_printf("Name: %s\n", name);
+	_printf("Grade: %c\n", grade);
+	_printf("Year: %d\n", year);
+	_printf("Literal percent: %%\n");
+
+	return (0);
+}
+.PP
+.SH AUTHORS
+Wassef Abdallah
+Benjamin Estrada
