@@ -19,6 +19,9 @@ The _printf function is a custom implementation of the standard printf function,
 %d prints a integer
 .TP
 %i prints a integer
+.TP
+%b prints a binary number
+.TP
 .SH RETURN VALUE
 The _printf function returns the total number of characters written if the operation succeeds. In case of an error, it returns -1. If some characters are not accounted for, it returns them as they are.
 .SH EXAMPLES
