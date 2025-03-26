@@ -1,6 +1,6 @@
 .TH _printf 1 "26/03/2025" "version 1.0" user commands
 .SH NAME
-_printf \- format and print data
+_printf - format and print data
 .SH SYNOPSIS
 .#include "main.h"
 .TP
