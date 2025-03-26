@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * _printf - Produces output according to a format
- * @format: A string containing the format to print
- *
- * Return: The number of characters printed (excluding the null byte)
- */
+* _printf - Produces output according to a format
+* @format: A string containing the format to print
+*
+* Return: The number of characters printed (excluding the null byte)
+*/
+
 int _printf(const char *format, ...)
 {
 	/* Déclaration de la liste d'arguments variables */
@@ -20,7 +21,7 @@ int _printf(const char *format, ...)
 	spec_t spec[] = {
 		{'c', print_char}, {'s', print_string},
 		{'%', print_percent}, {'i', print_int},
-		{'d', print_int}, {'\0', NULL}
+		{'d', print_int}, {'b', print_binary}, {'\0', NULL}
 	};
 
 	/* Vérifie si le pointeur format est NULL */

@@ -60,49 +60,42 @@ int print_number(unsigned int n)
 
 int handle_specifier(const char *format, int *i, va_list args, spec_t spec[])
 {
-	/* j : index pour parcourir le tableau spec; */
-	/* count : nombre de caractères imprimés */
 	int j, count = 0;
 
-	/* Vérifie si % est le dernier caractère de la chaîne */
-	/* (aucun caractère à traiter après) */
+	/* Vérifie que format[*i + 1] est bien accessible */
 	if (format[*i + 1] == '\0')
-		return (0); /* Rien à faire, on retourne 0 */
+	{
+		_putchar('%');
+		(*i)++;
+		return (1);
+	}
 
-	/* Parcourt le tableau des spécificateurs jusqu'à la fin */
-	/* (détectée par '\0') */
+	/* Recherche du spécificateur dans la table */
 	for (j = 0; spec[j].specifier != '\0'; j++)
 	{
-		/* Si le caractère après % correspond à un spécificateur reconnu */
 		if (format[*i + 1] == spec[j].specifier)
 		{
-			/* Appelle la fonction correspondante et ajoute son retour au compteur */
 			count += spec[j].func(args);
-
-			/* Avance l'index de deux positions : le '%' et le caractère suivant */
 			*i += 2;
-
-			/* Retourne le nombre de caractères imprimés */
 			return (count);
 		}
 	}
 
-	/* Cas : caractère non géré → afficher % + caractère */
-	/* Si aucun spécificateur reconnu : on imprime '%' */
-	/* suivi du caractère non reconnu */
-	_putchar('%');
-
-	/* Affiche le caractère non reconnu après '%' */
-	_putchar(format[*i + 1]);
-
-	/* Avance l'index de deux positions */
-	/* (comme s’il s’agissait d’un couple valide) */
-	*i += 2;
-
-	/* Retourne 2 car deux caractères ont été imprimés : '%' */
-	/* et l'autre caractère */
-
-	return (2);
+	/* Sécurité : vérifie encore si format[*i + 1] est non NULL */
+	if (format[*i + 1])
+	{
+		_putchar('%');
+		_putchar(format[*i + 1]);
+		*i += 2;
+		return (2);
+	}
+	else
+	{
+		/* Dans un cas très improbable où format[*i + 1] == '\0' ici */
+		_putchar('%');
+		(*i)++;
+		return (1);
+	}
 }
 
 /**

@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <limits.h>
+#include "main.h"
+
+/**
+* main - Tests intermédiaires pour _printf
+*
+* Return: Always 0
+*/
+
+int main(void)
+{
+	int len, std_len;
+
+	printf("\n========== TESTS INTERMÉDIAIRES _PRINTF ==========\n\n");
+
+	/* Test 7 : % seul à la fin */
+	len = _printf("Un seul %%");
+	std_len = printf("Un seul %%");
+	printf("Test 7 : %% en fin => _printf: %d | printf: %d\n", len, std_len);
+
+	/* Test 8 : Double %% + texte */
+	len = _printf("Double pourcent : %%%%OK\n");
+	std_len = printf("Double pourcent : %%%%OK\n");
+	printf("Test 8 : %%%% + texte => _printf: %d | printf: %d\n", len, std_len);
+
+	/* Test 9 : Entiers positifs (%d, %i) */
+	len = _printf("Valeur d : %d, i : %i\n", 42, 99);
+	std_len = printf("Valeur d : %d, i : %i\n", 42, 99);
+	printf("Test 9 : %%d / %%i positifs => _printf: %d | printf: %d\n", len, std_len);
+
+	/* Test 10 : Entiers négatifs */
+	len = _printf("Valeurs négatives : %d et %i\n", -123, -456);
+	std_len = printf("Valeurs négatives : %d et %i\n", -123, -456);
+	printf("Test 10 : %%d / %%i négatifs => _printf: %d | printf: %d\n", len, std_len);
+
+	/* Test 11 : INT_MAX / INT_MIN */
+	len = _printf("Max : %d, Min : %d\n", INT_MAX, INT_MIN);
+	std_len = printf("Max : %d, Min : %d\n", INT_MAX, INT_MIN);
+	printf("Test 11 : INT_MAX / MIN => _printf: %d | printf: %d\n", len, std_len);
+
+	/* Test 12 : %b (binaire) */
+	len = _printf("Binaire de 0 : %b\n", 0);
+	printf("Binaire 0 => Longueur : %d\n", len);
+
+	len = _printf("Binaire de 5 : %b\n", 5);
+	printf("Binaire 5 => Longueur : %d\n", len);
+
+	len = _printf("Binaire de 16 : %b\n", 16);
+	printf("Binaire 16 => Longueur : %d\n", len);
+
+	len = _printf("Binaire de 19 : %b\n", 19);
+	printf("Binaire 19 => Longueur : %d\n", len);
+
+	len = _printf("Binaire de 255 : %b\n", 255);
+	printf("Binaire 255 => Longueur : %d\n", len);
+
+	len = _printf("Binaire de UINT_MAX : %b\n", UINT_MAX);
+	printf("Binaire UINT_MAX => Longueur : %d\n", len);
+
+	printf("\n========== FIN TESTS INTERMÉDIAIRES ==========\n\n");
+	return (0);
+}

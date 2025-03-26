@@ -75,3 +75,45 @@ int print_int(va_list arg)
 	count += print_number(num);
 	return (count);
 }
+
+#include "main.h"
+
+/**
+* print_binary - Prints an unsigned int in binary (base 2)
+* @args: va_list containing the number to convert and print
+*
+* Return: Number of characters printed
+*/
+
+int print_binary(va_list args)
+{
+	unsigned int n;
+
+	int count = 0;
+
+	char buffer[32];
+
+	int i = 0, j;
+
+	n = va_arg(args, unsigned int);
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
+		while (n > 0)
+		{
+			buffer[i++] = (n % 2) + '0';
+			n = n / 2;
+		}
+
+		for (j = i - 1; j >= 0; j--)
+		{
+			_putchar(buffer[j]);
+			count++;
+		}
+
+	return (count);
+}
