@@ -2,4 +2,4 @@
 
 ## The Flowchart of the _printf function
 
-<img src="images/Flow_printf.png" width="600"/>
+<img src="images/Flow_printf.png" width="800"/>
