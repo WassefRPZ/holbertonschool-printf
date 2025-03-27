@@ -178,7 +178,7 @@ Our 5 test files are as follows:
 - basic tests
 - intermediate tests
 - advanced tests
-- extreme tests
+- extremes tests
 - bonus tests
 
 <p align="center">
