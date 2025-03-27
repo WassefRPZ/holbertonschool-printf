@@ -155,6 +155,60 @@ These functions assist with tasks such as writing characters to the output or co
 `main.h`: The header file for the `_printf` project.
 It contains function prototypes, structure definitions (e.g., the spec_t struct), macros, and necessary standard library includes.
 
+## Tests
+
+For our test phases, we tried to push the code to its limits, and we tried to make it crash using various test files.
+We used a total of 6 test files, including the one provided in the project.
+Of course, we started with simple tests, such as displaying a sentence, then we added numbers and various symbols to check the behaviour of the code.
+Our 5 test files are as follows:
+- basic tests
+- intermediate tests
+- advanced tests
+- extremes tests
+- bonus tests
+
+<p align="center">
+  <img src="images/test_base.png" width="300" />
+  <img src="images/test_intermediaires.png" width="300" />
+</p>
+
+<p align="center">
+  <img src="images/test_avance.png" width="300" />
+  <img src="images/test_extremes.png" width="300" />
+</p>
+
+<p align="center">
+  <img src="images/test_bonus.png" width="300" />
+</p>
+
+## Examples
+
+```c
+#include "main.h"
+
+int main(void)
+{
+    int year = 2025;
+    char grade = 'A';
+    char *name = "Mynh";
+
+    _printf("Name: %s\n", name);
+    _printf("Grade: %c\n", grade);
+    _printf("Year: %d\n", year);
+    _printf("Literal percent: %%\n");
+
+    return (0);
+}
+```
+## Output:
+
+```c
+Name: Mynh
+Grade: A
+Year: 2025
+Literal percent: %
+```
+
 ## How to contribute - Add a new format specifier
 
 To add a new format specifier to `_printf` (e.g., `%x` for hexadecimal), follow these steps:
@@ -205,59 +259,6 @@ _printf("Hex: %x\n", 255); // Expected: Hex: ff
 ```c
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf_test
 ```
-
-## Examples
-
-```c
-#include "main.h"
-
-int main(void)
-{
-    int year = 2025;
-    char grade = 'A';
-    char *name = "Mynh";
-
-    _printf("Name: %s\n", name);
-    _printf("Grade: %c\n", grade);
-    _printf("Year: %d\n", year);
-    _printf("Literal percent: %%\n");
-
-    return (0);
-}
-```
-## Output:
-
-```c
-Name: Mynh
-Grade: A
-Year: 2025
-Literal percent: %
-```
-## Tests
-
-For our test phases, we tried to push the code to its limits, and we tried to make it crash using various test files.
-We used a total of 6 test files, including the one provided in the project.
-Of course, we started with simple tests, such as displaying a sentence, then we added numbers and various symbols to check the behaviour of the code.
-Our 5 test files are as follows:
-- basic tests
-- intermediate tests
-- advanced tests
-- extremes tests
-- bonus tests
-
-<p align="center">
-  <img src="images/test_base.png" width="300" />
-  <img src="images/test_intermediaires.png" width="300" />
-</p>
-
-<p align="center">
-  <img src="images/test_avance.png" width="300" />
-  <img src="images/test_extremes.png" width="300" />
-</p>
-
-<p align="center">
-  <img src="images/test_bonus.png" width="300" />
-</p>
 
 ## Authors
 
