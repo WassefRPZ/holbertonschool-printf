@@ -133,6 +133,9 @@ If a format specifier is not recognized, the `%` symbol followed by the unknown 
 
 ## The man page
 
+The command to call up the man page:
+`man ./man_3_printf`
+
 <img src="images/man_page_printf.png"/>
 
 ## The Flowchart of the _printf function
