@@ -174,6 +174,37 @@ int print_hex(va_list args)
     return count;
 }
 ```
+### 2. Declare the function prototype
+
+In `main.h`, add:
+
+```c
+int print_hex(va_list args);
+```
+
+### 3. Add the specifier in the spec_t array
+
+In `_printf.c` (or where your `spec_t spec[]` array lives), add:
+
+```c
+{'x', print_hex},
+```
+
+### 4. (Optional) Add utility logic
+If needed, implement a helper like `convert()` to handle base conversion (binary, hex, etc.).
+
+### 5. Write your test cases
+Create a test file or extend an existing one (e.g., test_specifier.c) and test:
+
+```c
+_printf("Hex: %x\n", 255); // Expected: Hex: ff
+```
+
+### Don't forget to recompile using:
+
+```c
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf_test
+```
 
 ## Examples
 
