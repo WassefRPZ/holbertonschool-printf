@@ -117,7 +117,6 @@ Len:[12]
 Len:[12]
 Unknown:[%r]
 Unknown:[%r]
-alex@ubuntu:~/c/printf$
 ```
 - We strongly encourage you to work all together on a set of tests
 - If the task does not specify what to do with an edge case, do the same as `printf`
@@ -141,6 +140,40 @@ The command to call up the man page:
 ## The Flowchart of the _printf function
 
 <img src="images/Flow_printf.png" width="800"/>
+
+## File organisation
+
+`printf.c`: Contains the main implementation of the `_printf` function.
+It parses the format string, identifies format specifiers, and delegates the printing task to the appropriate helper functions based on the specifier.
+
+`print_functions.c`: Contains the printing functions associated with each supported format specifier (e.g., characters, strings, integers, and percent signs).
+Each function handles the output of its corresponding data type.
+
+`utils_functions.c`: Includes utility functions used internally by the `_printf` implementation.
+These functions assist with tasks such as writing characters to the output or converting integers to strings.
+
+`main.h`: The header file for the `_printf` project.
+It contains function prototypes, structure definitions (e.g., the spec_t struct), macros, and necessary standard library includes.
+
+## How to contribute - Add a new format specifier
+
+To add a new format specifier to `_printf` (e.g., `%x` for hexadecimal), follow these steps:
+
+---
+
+### 1. Add a handler function
+
+In `print_functions.c`, create a new function to print the corresponding value:
+
+```c
+int print_hex(va_list args)
+{
+    unsigned int num = va_arg(args, unsigned int);
+    // Call your conversion logic (e.g., convert to hex string and print)
+    // For example: print_number_base(num, 16, 1);
+    return count;
+}
+```
 
 ## Examples
 
