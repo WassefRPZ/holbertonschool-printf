@@ -191,6 +191,10 @@ Our 5 test files are as follows:
   <img src="images/test_extremes.png" width="300" />
 </p>
 
+<p align="center">
+  <img src="images/test_bonus.png" width="300" />
+</p>
+
 ## Authors
 
 [Benjamin Estrada](https://github.com/Aluranae)  
