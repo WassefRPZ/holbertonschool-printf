@@ -16,7 +16,7 @@ The _printf function is a custom implementation of the standard printf function,
 .TP
 %% prints a percent sign
 .TP
-%d prints a integer
+%d prints a decimal
 .TP
 %i prints a integer
 .TP
