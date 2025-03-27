@@ -172,10 +172,23 @@ Literal percent: %
 ## Tests
 
 For our test phases, we tried to push the code to its limits, and we tried to make it crash using various test files.
+We used a total of 6 test files, including the one provided in the project.
+Of course, we started with simple tests, such as displaying a sentence, then we added numbers and various symbols to check the behaviour of the code.
+Our 5 test files are as follows:
+- basic tests
+- intermediate tests
+- advanced tests
+- extreme tests
+- bonus tests
 
 <p align="center">
   <img src="images/test_base.png" width="300" />
   <img src="images/test_intermediaires.png" width="300" />
+</p>
+
+<p align="center">
+  <img src="images/test_avance.png" width="300" />
+  <img src="images/test_extremes.png" width="300" />
 </p>
 
 ## Authors
