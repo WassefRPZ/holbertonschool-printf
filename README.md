@@ -171,9 +171,11 @@ Literal percent: %
 ```
 ## Tests
 
+For our test phases, we tried to push the code to its limits, and we tried to make it crash using various test files.
+
 <p align="center">
-  <img src="test_base.png" width="300" />
-  <img src="test_intermediaires.png" width="300" />
+  <img src="images/test_base.png" width="300" />
+  <img src="images/test_intermediaires.png" width="300" />
 </p>
 
 ## Authors
