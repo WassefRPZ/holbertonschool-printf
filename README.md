@@ -169,6 +169,12 @@ Grade: A
 Year: 2025
 Literal percent: %
 ```
+## Tests
+
+<p align="center">
+  <img src="test_base.png" width="300" />
+  <img src="test_intermediaires.png" width="300" />
+</p>
 
 ## Authors
 
